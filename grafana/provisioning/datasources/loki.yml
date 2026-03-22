@@ -1,0 +1,11 @@
+# grafana/provisioning/datasources/loki.yml
+apiVersion: 1
+
+datasources:
+  - name: Loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    isDefault: true # Сделать этот источник данных по умолчанию
+    version: 1
+    editable: false # Запретить редактирование через UI Grafana
