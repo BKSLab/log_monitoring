@@ -8,8 +8,6 @@ services:
     volumes:
       - ./loki/config.yml:/etc/loki/config.yml
       - ./loki/data:/loki
-    ports:
-      - "${LOKI_PORT}:3100"
     restart: unless-stopped
     labels:
       - "logging=promtail"
