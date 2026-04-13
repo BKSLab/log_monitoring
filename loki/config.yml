@@ -26,6 +26,15 @@ schema_config:
 
 limits_config:
   retention_period: 30d
+  # Защита от спама логами: макс 16 МБ/с на ingestion, burst до 32 МБ
+  ingestion_rate_mb: 16
+  ingestion_burst_size_mb: 32
+  # Не более 10 000 активных стримов (уникальных комбинаций меток)
+  max_global_streams_per_user: 10000
+  # Лимит строк в одном запросе из Grafana
+  max_entries_limit_per_query: 10000
+  # Максимальный диапазон запроса — 30 дней (соответствует retention)
+  max_query_length: 720h
 
 compactor:
   working_directory: /loki/compactor
